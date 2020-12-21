@@ -6,7 +6,7 @@ echo 'Install Nginx web server on Alpine Linux'
 # --> docker build -t aabounak .
 # --> docker run -it -p 80:80 -p 443:443 -d aabounak
 # --> docker start {CONTAINER ID}
-# --> docker exec -it {CONTAINER ID} bash
+# --> docker exec -it {CONTAINER ID} sh
 
 # Build a docker image from a Dockerfile
 # --> docker build -t <image name> <Dockerfile dir>
@@ -37,7 +37,7 @@ echo 'Install Nginx web server on Alpine Linux'
 # apk add nginx
 
 # Create new user and group 'www' for nginx
-# adduser -d -g 'www' www
+# adduser -D -g 'www' www
 
 # Create a directory for html files
 # mkdir /www/
