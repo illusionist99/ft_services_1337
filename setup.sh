@@ -9,4 +9,3 @@ brew install docker-machine
 brew install minikube
 brew install kubectl
 
-# 3 - Ft_server in VM
