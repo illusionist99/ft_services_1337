@@ -1,11 +1,27 @@
-# 1 - Brew Installation
-chmod 777 setup.sh 
-rm -rf /Users/$USER/goinfre/.brew && git clone --depth=1 https://github.com/Homebrew/brew /Users/$USER/goinfre/.brew && export PATH=/Users/$USER/goinfre/.brew/bin:$PATH && brew update && echo "export PATH=/Users/$USER/goinfre/.brew/bin:$PATH" >> ~/.zshrc
+#!/bin/sh
 
-# 2 - Install Docker | Docker-Machine | Minikube | Kubectl
+echo 'Installing -> Brew | Docker | Docker-Machine | Minikube | Kubectl'
+
+# Install Brew
+mkdir /goinfre/$1/.brew && curl -fsSL https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /goinfre/$1/.brew
+mkdir -p /tmp/.$(whoami)-brew-locks
+mkdir -p /goinfre/$1/.brew/var/homebrew
+ln -s /tmp/.$(whoami)-brew-locks /goinfre/$1/.brew/var/homebrew/locks
+echo 'export PATH="/goinfre/$1/.brew/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="/goinfre/$1/.brew/bin:$PATH"' >> ~/.zshrc
+ln -s /goinfre/$1/.brew ~/.brown
+brew update && brew upgrade
+mkdir -p /tmp/.$(whoami)-brew-locks
+echo 'export PATH="$HOME/.brown/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$HOME/.brown/bin:$PATH"' >> ~/.zshrc
+
+# Install Docker & Docker-Machine
+brew install docker
+brew install docker-machine
+
+# Install Minikube & Kubectl
 cd /Users/$USER/goinfre
 brew install docker
 brew install docker-machine
 brew install minikube
 brew install kubectl
-
