@@ -11,5 +11,6 @@ RUN sudo chmod +x /script.sh
 
 EXPOSE 80
 EXPOSE 443
+EXPOSE 22
 
 ENTRYPOINT ["sh", "/script.sh"]
