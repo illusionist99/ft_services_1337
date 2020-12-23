@@ -1,16 +1,11 @@
-FROM alpine:latest
-
-RUN apk add sudo
-RUN apk add openrc --no-cache
-
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY index.html /www/index.html
-COPY script.sh /
-
-RUN sudo chmod +x /script.sh
-
-EXPOSE 80
-EXPOSE 443
-EXPOSE 22
-
-ENTRYPOINT ["sh", "/script.sh"]
+FROM alpine
+COPY srcs/install.sh /
+RUN sh install.sh
+COPY srcs/default.conf /etc/nginx/conf.d/default.conf
+COPY srcs/service.sh /
+COPY srcs/index.html /var/www/localhost/htdocs/
+COPY srcs/domain.crt /etc/ssl/certs/
+COPY srcs/domain.key /etc/ssl/private/
+RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+EXPOSE 80 443 22
+ENTRYPOINT ["sh", "service.sh"]
