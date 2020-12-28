@@ -1,27 +1,66 @@
-#!/bin/sh
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    setup.sh                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mkaddani <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2020/11/09 10:30:51 by mkaddani          #+#    #+#              #
+#    Updated: 2020/12/28 17:35:18 by mkaddani         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-echo 'Installing -> Brew | Docker | Docker-Machine | Minikube | Kubectl'
+#install brew in goinfre -----------------------------
 
-# Install Brew
-mkdir /goinfre/$1/.brew && curl -fsSL https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C /goinfre/$1/.brew
-mkdir -p /tmp/.$(whoami)-brew-locks
-mkdir -p /goinfre/$1/.brew/var/homebrew
-ln -s /tmp/.$(whoami)-brew-locks /goinfre/$1/.brew/var/homebrew/locks
-echo 'export PATH="/goinfre/$1/.brew/bin:$PATH"' >> ~/.bashrc
-echo 'export PATH="/goinfre/$1/.brew/bin:$PATH"' >> ~/.zshrc
-ln -s /goinfre/$1/.brew ~/.brown
-brew update && brew upgrade
-mkdir -p /tmp/.$(whoami)-brew-locks
-echo 'export PATH="$HOME/.brown/bin:$PATH"' >> ~/.bashrc
-echo 'export PATH="$HOME/.brown/bin:$PATH"' >> ~/.zshrc
+export MACHINE_STORAGE_PATH="/Users/$USER/goinfre/.docker"
+export MINIKUBE_HOME="/Users/$USER/goinfre/.minikube"
 
-# Install Docker & Docker-Machine
-brew install docker
-brew install docker-machine
 
-# Install Minikube & Kubectl
-cd /Users/$USER/goinfre
-brew install docker
-brew install docker-machine
-brew install minikube
-brew install kubectl
+if ! command -v brew &> /dev/null
+then
+  export HOME_BREW="/goinfre/$USER"
+  rm -rf $HOME/.brew && rm -rf $HOME_BREW/.brew && git clone --depth=1 https://github.com/Homebrew/brew $HOME_BREW/.brew && export PATH=$HOME_BREW/.brew/bin:$PATH && brew update && echo "export PATH=$HOME_BREW/.brew/bin:$PATH" >> ~/.zshrc && echo "export MINIKUBE_HOME=\"/Users/$USER/goinfre/.minikube\"" >> ~/.zshrc  && echo export "MACHINE_STORAGE_PATH=\"/Users/$USER/goinfre/.docker\"" >> ~/.zshrc
+	echo	"export HOME_BREW=\"/goinfre/$USER\""	>> ~/.zshrc
+	echo	"export PATH=$HOME_BREW/.brew/bin:$PATH"
+	echo	"export MACHINE_STORAGE_PATH=\"/Users/$USER/goinfre/.docker\""	>> ~/.zshrc
+	echo	"export MINIKUBE_HOME=\"/Users/$USER/goinfre/.minikube\""	>> ~/.zshrc
+	echo	"export MACHINE_STORAGE_PATH=\"/Users/$USER/goinfre/.docker\""	>> ~/.zshrc
+
+fi
+# install docker -------------------------------------
+if ! command -v docker &> /dev/null
+then
+  brew install docker
+fi
+# install kubectl -------------------------------------
+if ! command -v kubectl &> /dev/null
+then
+  brew install kubectl
+fi
+# install minikube ------------------------------------- 
+if ! command -v minikube &> /dev/null
+then
+  brew install minikube
+fi
+# install virtual box ; already installed
+
+# docker machine installation
+if ! command -v docker-machine &> /dev/null
+then
+  brew install docker-machine
+fi
+
+
+
+
+#brew install bash-completion
+#brew install docker-completion
+#brew install docker-compose-completion
+#brew install docker-machine-completion
+
+
+#docker-machine create default
+#eval $(docker-machine env default)
+#minikube start
+#minikube docker-env
+#eval $(minikube docker-env)
