@@ -7,8 +7,8 @@ https://www.youtube.com/watch?v=X48VuDVv0do
 https://www.youtube.com/watch?v=qmDzcu5uY1I
 
 **3 - Ressources:**
--> *MySQL: https://linuxize.com/post/mysql-remote-access/
--> MetalLB Installation: https://metallb.universe.tf/installation/
+-> *MySQL: https://linuxize.com/post/mysql-remote-access/\n
+-> MetalLB Installation: https://metallb.universe.tf/installation/\n
 -> MetalLB Configuration: https://metallb.universe.tf/configuration/*
 
 
