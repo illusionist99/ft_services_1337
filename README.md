@@ -6,7 +6,13 @@ https://www.youtube.com/watch?v=X48VuDVv0do
 **2 - Kubernetes YAML File Explained - Deployment and Service:**
 https://www.youtube.com/watch?v=qmDzcu5uY1I
 
-**3 - Basic Docker Commands:**
+**3 - Ressources:**
+-> *MySQL: https://linuxize.com/post/mysql-remote-access/
+-> MetalLB Installation: https://metallb.universe.tf/installation/
+-> MetalLB Configuration: https://metallb.universe.tf/configuration/*
+
+
+**4 - Basic Docker Commands:**
 ```
 # Build a docker image from a Dockerfile
 docker build -t {IMAGE_NAME} {DOCKERFILE_DIR}
@@ -38,7 +44,7 @@ docker kill {CONTAINER ID}
 docker system prune
 ```
 
-**4 - Managing Pods With Kubernetes:**
+**5 - Managing Pods With Kubernetes:**
 ```
 # Create a pod from a YAML file
 kubectl create -f {FILE_NAME.yaml}
