@@ -7,9 +7,9 @@ https://www.youtube.com/watch?v=X48VuDVv0do
 https://www.youtube.com/watch?v=qmDzcu5uY1I
 
 **3 - Ressources:**<br/>
--> MySQL: https://linuxize.com/post/mysql-remote-access/<br/>
--> MetalLB Installation: https://metallb.universe.tf/installation/<br/>
--> MetalLB Configuration: https://metallb.universe.tf/configuration/
+→ *MySQL:* https://linuxize.com/post/mysql-remote-access/<br/>
+→ *MetalLB Installation:* https://metallb.universe.tf/installation/<br/>
+→ *MetalLB Configuration:* https://metallb.universe.tf/configuration/
 
 **4 - Basic Docker Commands:**
 ```
