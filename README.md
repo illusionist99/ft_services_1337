@@ -6,11 +6,10 @@ https://www.youtube.com/watch?v=X48VuDVv0do
 **2 - Kubernetes YAML File Explained - Deployment and Service:**
 https://www.youtube.com/watch?v=qmDzcu5uY1I
 
-**3 - Ressources:**
--> *MySQL: https://linuxize.com/post/mysql-remote-access/<br/>
+**3 - Ressources:**<br/>
+-> MySQL: https://linuxize.com/post/mysql-remote-access/<br/>
 -> MetalLB Installation: https://metallb.universe.tf/installation/<br/>
--> MetalLB Configuration: https://metallb.universe.tf/configuration/*
-
+-> MetalLB Configuration: https://metallb.universe.tf/configuration/
 
 **4 - Basic Docker Commands:**
 ```
