@@ -14,6 +14,9 @@ https://www.youtube.com/watch?v=qmDzcu5uY1I
 > *MetalLB Configuration:* https://metallb.universe.tf/configuration/<br/>
 > *Supervisor:* http://supervisord.org/configuration.html<br/>
 
+**4 - StackOverFlow:**<br/>
+> *Bash:* https://stackoverflow.com/questions/43801947/bash-get-return-value-of-a-command-and-exit-with-this-value
+
 **4 - Basic Docker Commands:**
 ```
 # Build a docker image from a Dockerfile
