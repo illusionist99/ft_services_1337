@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM alpine:3.12
 
 # default port http
 EXPOSE  80
@@ -6,7 +6,8 @@ EXPOSE  80
 EXPOSE  443
 
 # Updating and adding Stuff i may need
-RUN     apk update && apk upgrade
+RUN     apk update
+RUN     apk upgrade
 RUN     apk add nginx
 RUN     apk add openrc --no-cache
 RUN     apk add vim
@@ -28,5 +29,4 @@ RUN     apk add openssl
 RUN     openssl req -x509 -nodes -days 365 -subj "/C=CA/ST=QC/O=Company, Inc./CN=mydomain.com" -addext "subjectAltName=DNS:mydomain.com" -newkey rsa:2048 -keyout /etc/ssl/private/nginx-selfsigned.key -out /etc/ssl/certs/nginx-selfsigned.crt;
 
 COPY    ./srcs/script.sh /
-RUN     chmod +x /script.sh
-CMD ["/script.sh"]
+ENTRYPOINT ["sh", "/script.sh"]
