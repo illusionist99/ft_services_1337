@@ -41,9 +41,3 @@ echo	"export PATH=$BREW_HOME/.brew/bin:$PATH"
 echo	"export MACHINE_STORAGE_PATH=\"/Users/$USER/goinfre/.docker\""	>> ~/.zshrc
 echo	"export MINIKUBE_HOME=\"/Users/$USER/goinfre/.minikube\""	>> ~/.zshrc
 echo	"export MACHINE_STORAGE_PATH=\"/Users/$USER/goinfre/.docker\""	>> ~/.zshrc
-
-# START
-minikube start
-# docker-machine start
-# eval $(docker-machine env default)
-eval $(minikube -p minikube docker-env)
