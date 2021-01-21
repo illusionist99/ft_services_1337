@@ -1,11 +1,11 @@
 #!bin/sh
 
-/etc/init.d/mariadb setup
-/etc/init.d/mariadb start
+#/etc/init.d/mariadb setup
+#/etc/init.d/mariadb start
 
-/usr/bin/mysql_install_db --user=mysql
-/etc/init.d/mariadb start && rc-update add mariadb default
-/usr/bin/mysqladmin -u root password '1234'
+#/usr/bin/mysql_install_db --user=mysql
+#/etc/init.d/mariadb start && rc-update add mariadb default
+#/usr/bin/mysqladmin -u root password '1234'
 
 cd /www/
 
@@ -28,9 +28,7 @@ openrc reboot
 
 rc-service nginx start
 rc-service php-fpm7 start
-rc-service mariadb start
-rc-service lighttpd start
-rc-update add lighttpd default
+#rc-service mariadb start
 
 # Open a Shell  
 sh
