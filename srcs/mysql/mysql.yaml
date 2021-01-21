@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sqldb
+  labels:
+    app: sqldb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sqldb
+  template:
+    metadata:
+      labels:
+        app: sqldb
+    spec:
+      containers:
+      - name: sqldb
+        image: sql_db
+        imagePullPolicy: Never
+        #command: [ "/bin/sh", "-ce", "nginx && tail -f /dev/null" ]

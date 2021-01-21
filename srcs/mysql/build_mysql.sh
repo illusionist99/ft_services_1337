@@ -1,7 +1,9 @@
-#!bin/sh
-minikube start
+
+
+#minikube start
+
 eval $(minikube docker-env)
-docker build -t my_nginx .
+docker build -t sql_db .
 minikube addons enable metallb
-kubectl apply -f nginx.yaml
+kubectl apply -f mysql.yaml
 minikube dashboard&

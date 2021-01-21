@@ -20,13 +20,6 @@ mv .docker /goinfre/$USER/
 
 ln -s /goinfre/$USER/.docker .docker
 
-brew install    docker-machine
-
-docker-machine  create default
-docker-machine  env default
-
-eval $(docker-machine env default)
-
 # installing minikube
 
 brew install minikube

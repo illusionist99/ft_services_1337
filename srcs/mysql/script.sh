@@ -1,13 +1,3 @@
-#!bin/sh
-
-cd /www/
-wget http://wordpress.org/latest.tar.gz
-tar -xzvf latest.tar.gz
-chown -R lighttpd /www/wordpress
-
-cp /wp-config.php /www/wordpress/
-rm latest.tar.gz
-
 /etc/init.d/mariadb setup
 /etc/init.d/mariadb start
 
@@ -21,10 +11,7 @@ echo "FLUSH PRIVILEGES;" | mysql -u root
 
 openrc reboot
 
-rc-service nginx start
-rc-service php-fpm7 start
 rc-service mariadb start
-
+tail -f /dev/null
 # Open a Shell  
 sh
-
