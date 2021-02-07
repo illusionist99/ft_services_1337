@@ -14,14 +14,11 @@ echo "DONE !\n"
 
 source /Users/$USER/.zshrc
 
-brew install    docker
-
-mv .docker /goinfre/$USER/
-
-ln -s /goinfre/$USER/.docker .docker
-
 # installing minikube
 
 brew install minikube
 
 mv .minikube /goinfre/$USER/
+
+
+ln -s /goinfre/$USER/.minikube  .minikube

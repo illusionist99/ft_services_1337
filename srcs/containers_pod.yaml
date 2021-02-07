@@ -3,7 +3,6 @@ kind: Pod
 metadata:
   name: multi-pod
 spec:
-
   restartPolicy: Never
 
   volumes:
@@ -22,4 +21,3 @@ spec:
     volumeMounts:
     - name: shared-data
       mountPath: /pod-data
-    

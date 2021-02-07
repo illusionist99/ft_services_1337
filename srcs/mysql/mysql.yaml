@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sqldb
+  labels:
+    app: sqldb
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: sqldb
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -16,6 +28,29 @@ spec:
     spec:
       containers:
       - name: sqldb
-        image: sql_db
+        image: sqldb
         imagePullPolicy: Never
-        #command: [ "/bin/sh", "-ce", "nginx && tail -f /dev/null" ]
+        ports:
+        - containerPort: 3306
+          name: mysql
+        volumeMounts:
+        - name: mysql-persistent-storage
+          mountPath: /var/lib/mysql
+        #command: [ "/bin/sh", "-ce", "tail -f /dev/null" ]
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-pv-claim
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mysql-pv-claim
+  labels:
+    app: phpmyadmin
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi 
