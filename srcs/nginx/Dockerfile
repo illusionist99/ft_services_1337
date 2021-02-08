@@ -4,6 +4,8 @@ FROM alpine:3.12
 EXPOSE  80
 # default port https
 EXPOSE  443
+# default ssh port
+EXPOSE  22
 
 # Updating and adding Stuff i may need
 RUN     apk update
