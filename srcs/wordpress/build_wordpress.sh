@@ -1,6 +1,6 @@
 #!bin/sh 
 
-minikube start
+minikube start --driver=virtualbox
 minikube addons enable metallb
 kubectl apply -f ../metallb.yaml
 eval $(minikube docker-env)

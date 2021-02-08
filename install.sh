@@ -18,7 +18,8 @@ source /Users/$USER/.zshrc
 
 brew install minikube
 
-mv .minikube /goinfre/$USER/
+minikube start --driver=virtualbox
 
+mv .minikube /goinfre/$USER/
 
 ln -s /goinfre/$USER/.minikube  .minikube
