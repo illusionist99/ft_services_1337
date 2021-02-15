@@ -9,15 +9,14 @@ spec:
     app: ftps
   ports:
     - port: 21
-      protocol: TCP
       targetPort: 21
       name: ftps
     - port: 30000
-      name: first
       targetPort: 30000
+      name: first
     - port: 30001
-      name: second
       targetPort: 30001
+      name: second
   type: LoadBalancer
 ---
 apiVersion: apps/v1

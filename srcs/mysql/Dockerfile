@@ -11,7 +11,7 @@ RUN     apk add sudo
 # adding mysql 
 
 RUN     apk add mariadb mariadb-common mariadb-client
-RUN     openrc reboot
+
 
 COPY    ./script.sh /
 RUN     chmod +x /script.sh

@@ -1,14 +1,9 @@
 #!bin/bash
-
+sudo openrc reboot
 # ssl 
-adduser -D 'ftpsuser'
-echo "ftpsuser:1234" | chpasswd
 
+#sudo mkdir /home/ftpuser/ && sudo chown -R :root /home/ftpuser/
 
-sudo mkdir /home/ftpuser/ && sudo chown -R :ftpsuser /home/ftpuser/
-sudo chmod a-w /home/ftpuser/
+vsftpd /etc/vsftpd/vsftpd.conf &
 
-openrc reboot
-rc-service vsftpd start
 tail -f /dev/null
-sh 

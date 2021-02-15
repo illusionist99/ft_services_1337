@@ -1,6 +1,6 @@
 
 
 eval $(minikube docker-env)
-docker build -t sqldb .
+docker build -t mysql .
 kubectl apply -f mysql.yaml
 

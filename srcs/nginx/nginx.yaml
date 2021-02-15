@@ -39,7 +39,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: my_nginx
+        image: nginx
         imagePullPolicy: Never
         #command: [ "/bin/sh", "-ce", "nginx && tail -f /dev/null" ]
         ports:

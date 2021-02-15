@@ -1,0 +1,62 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: graf-data-dir-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: monitoring
+  labels:
+    app: grafana
+  name: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      containers:
+      - envFrom:
+        - secretRef:
+            name: grafana-creds
+        image: docker.io/grafana/grafana:7.3.3
+        name: grafana
+        volumeMounts:
+          - name: data-dir
+            mountPath: /var/lib/grafana/
+      securityContext:
+        fsGroup: 472
+      volumes:
+       - name: data-dir
+         persistentVolumeClaim:
+           claimName: graf-data-dir-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-central-1:<account>:certificate/<certid>    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+  labels:
+    app: grafana
+  name: grafana
+  namespace: monitoring
+spec:
+  ports:
+  - port: 443
+    name: https
+    targetPort: 3000
+  selector:
+    app: grafana
+  type: LoadBalancer
