@@ -1,9 +1,6 @@
 #!bin/bash
 sudo openrc reboot
-# ssl 
 
-#sudo mkdir /home/ftpuser/ && sudo chown -R :root /home/ftpuser/
-
-vsftpd /etc/vsftpd/vsftpd.conf &
+sudo rc-service vsftpd start
 
 tail -f /dev/null
