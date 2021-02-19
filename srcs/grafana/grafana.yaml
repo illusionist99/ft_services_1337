@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -12,7 +13,6 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: monitoring
   labels:
     app: grafana
   name: grafana
@@ -30,7 +30,8 @@ spec:
       - envFrom:
         - secretRef:
             name: grafana-creds
-        image: docker.io/grafana/grafana:7.3.3
+        image: grafana
+        imagePullPolicy: Never
         name: grafana
         volumeMounts:
           - name: data-dir
@@ -46,15 +47,13 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: http
-    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-central-1:<account>:certificate/<certid>    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+    metallb.universe.tf/allow-shared-ip: shared
   labels:
     app: grafana
   name: grafana
-  namespace: monitoring
 spec:
   ports:
-  - port: 443
+  - port: 3000
     name: https
     targetPort: 3000
   selector:
