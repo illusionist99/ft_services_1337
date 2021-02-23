@@ -1,15 +1,3 @@
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: graf-data-dir-pvc
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -27,21 +15,11 @@ spec:
         app: grafana
     spec:
       containers:
-      - envFrom:
-        - secretRef:
-            name: grafana-creds
-        image: grafana
-        imagePullPolicy: Never
+      - image: grafana
         name: grafana
-        volumeMounts:
-          - name: data-dir
-            mountPath: /var/lib/grafana/
-      securityContext:
-        fsGroup: 472
-      volumes:
-       - name: data-dir
-         persistentVolumeClaim:
-           claimName: graf-data-dir-pvc
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
 ---
 apiVersion: v1
 kind: Service
