@@ -13,6 +13,7 @@ echo "GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' IDENTIFIED BY '1234';" | mysql -
 echo "FLUSH PRIVILEGES;" | mysql -u root
 
 
+
 mysql -u root -e 'GRANT SELECT, INSERT, DELETE, UPDATE ON phpmyadmin.* TO 'pma'@'%' IDENTIFIED BY "1234"'
 openrc reboot
 
