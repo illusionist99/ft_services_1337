@@ -6,6 +6,6 @@ influx -execute "GRANT ALL ON influx_db TO influx_user"
 
 influxd &
 
-export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
 
+export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
 telegraf /etc/telegraf.conf 

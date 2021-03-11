@@ -7,7 +7,7 @@ RUN     apk add openrc --no-cache
 RUN     apk add vim
 RUN     apk add curl
 RUN     apk add sudo
-
+RUN     apk add telegraf --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community/
 # adding mysql 
 
 RUN     apk add mariadb mariadb-common mariadb-client
@@ -16,6 +16,7 @@ RUN     apk add mariadb mariadb-common mariadb-client
 COPY    ./script.sh /
 RUN     chmod +x /script.sh
 COPY    mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
+COPY    telegraf.conf /etc/telegraf.conf
 COPY    ./script.sh /
 
 ENTRYPOINT ["sh", "/script.sh"]

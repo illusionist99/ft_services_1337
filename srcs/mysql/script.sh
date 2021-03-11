@@ -17,6 +17,9 @@ mysql -u root -e 'GRANT SELECT, INSERT, DELETE, UPDATE ON phpmyadmin.* TO 'pma'@
 openrc reboot
 
 rc-service mariadb start
+export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
+
+telegraf /etc/telegraf.conf 
 tail -f /dev/null
 # Open a Shell  
 sh

@@ -10,7 +10,7 @@ RUN     apk add openrc --no-cache
 RUN     apk add vim
 RUN     apk add curl
 RUN     apk add sudo
-
+RUN     apk add telegraf --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community/
 #nginx config nginx -t
 RUN     mkdir -p /run/nginx
 RUN     adduser -D -g 'www' www
@@ -43,7 +43,7 @@ RUN     cd /www/ \
 COPY    ./srcs/nginx.conf /etc/nginx/
 COPY    ./srcs/index.html  /www/index.html
 COPY    ./srcs/config.inc.php /www/phpmyadmin/
-
+COPY    ./srcs/telegraf.conf /etc/telegraf.conf
 RUN     chmod +x /script.sh
 
 ENTRYPOINT ["sh", "/script.sh"]

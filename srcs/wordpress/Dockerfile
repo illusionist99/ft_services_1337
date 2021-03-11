@@ -10,7 +10,7 @@ RUN     apk add openrc --no-cache
 RUN     apk add vim
 RUN     apk add curl
 RUN     apk add sudo
-
+RUN     apk add telegraf --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community/
 #nginx config nginx -t
 RUN     mkdir -p /run/nginx
 RUN     adduser -D -g 'www' www
@@ -37,6 +37,7 @@ RUN     rm latest.tar.gz
 RUN     mv  /wordpress   /www/wordpress
 
 COPY     ./srcs/wp-config.php /www/wordpress/
+COPY    ./srcs/telegraf.conf /etc/telegraf.conf
 RUN     chown -R www:www /www/wordpress
 
 RUN     chmod +x /script.sh
