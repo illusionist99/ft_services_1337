@@ -15,7 +15,7 @@ declare(strict_types=1);
  * This is needed for cookie based authentication to encrypt password in
  * cookie. Needs to be 32 chars long.
  */
-$cfg['PmaAbsoluteUri'] = '/';
+$cfg['PmaAbsoluteUri'] = './';
 $cfg['blowfish_secret'] = 'qtdRoGmbc9{8IZr323xYcSN]0s)r$9b_JUnb{~Xz';
 
 /**
@@ -48,26 +48,26 @@ $cfg['Servers'][$i]['controluser'] = 'root';
 $cfg['Servers'][$i]['controlpass'] = '1234';
 
 /* Storage database and tables */
-$cfg['Servers'][$i]['pmadb'] = 'phpmyadmin';
-$cfg['Servers'][$i]['bookmarktable'] = 'pma__bookmark';
-$cfg['Servers'][$i]['relation'] = 'pma__relation';
-$cfg['Servers'][$i]['table_info'] = 'pma__table_info';
-$cfg['Servers'][$i]['table_coords'] = 'pma__table_coords';
-$cfg['Servers'][$i]['pdf_pages'] = 'pma__pdf_pages';
-$cfg['Servers'][$i]['column_info'] = 'pma__column_info';
-$cfg['Servers'][$i]['history'] = 'pma__history';
-$cfg['Servers'][$i]['table_uiprefs'] = 'pma__table_uiprefs';
-$cfg['Servers'][$i]['tracking'] = 'pma__tracking';
-$cfg['Servers'][$i]['userconfig'] = 'pma__userconfig';
-$cfg['Servers'][$i]['recent'] = 'pma__recent';
-$cfg['Servers'][$i]['favorite'] = 'pma__favorite';
-$cfg['Servers'][$i]['users'] = 'pma__users';
-$cfg['Servers'][$i]['usergroups'] = 'pma__usergroups';
-$cfg['Servers'][$i]['navigationhiding'] = 'pma__navigationhiding';
-$cfg['Servers'][$i]['savedsearches'] = 'pma__savedsearches';
-$cfg['Servers'][$i]['central_columns'] = 'pma__central_columns';
-$cfg['Servers'][$i]['designer_settings'] = 'pma__designer_settings';
-$cfg['Servers'][$i]['export_templates'] = 'pma__export_templates';
+$cfg['Servers'][$i]['pma__bookmark'] = 'pma__bookmark';
+$cfg['Servers'][$i]['pma__relation'] = 'pma__relation';
+$cfg['Servers'][$i]['pma__table_info'] = 'pma__table_info';
+$cfg['Servers'][$i]['pma__table_coords'] = 'pma__table_coords';
+$cfg['Servers'][$i]['pma__pdf_pages'] = 'pma__pdf_pages';
+$cfg['Servers'][$i]['pma__column_info'] = 'pma__column_info';
+$cfg['Servers'][$i]['pma__table_uiprefs'] = 'pma__history';
+$cfg['Servers'][$i]['pma__table_uiprefs'] = 'pma__table_uiprefs';
+$cfg['Servers'][$i]['pma__tracking'] = 'pma__tracking';
+$cfg['Servers'][$i]['pma__userconfig'] = 'pma__userconfig';
+$cfg['Servers'][$i]['pma__recent'] = 'pma__recent';
+$cfg['Servers'][$i]['pma__users'] = 'pma__users';
+$cfg['Servers'][$i]['pma__usergroups'] = 'pma__usergroups';
+$cfg['Servers'][$i]['pma__navigationhiding'] = 'pma__navigationhiding';
+$cfg['Servers'][$i]['pma__savedsearches'] = 'pma__savedsearches';
+$cfg['Servers'][$i]['pma__central_columns'] = 'pma__central_columns';
+$cfg['Servers'][$i]['pma__designer_coords'] = 'pma__designer_coords';
+$cfg['Servers'][$i]['pma__designer_settings'] = 'pma__designer_settings';
+$cfg['Servers'][$i]['pma__export_templates'] = 'pma__export_templates';
+$cfg['Servers'][$i]['pma__favorite'] = 'pma__favorite';
 
 /**
  * End of servers configuration

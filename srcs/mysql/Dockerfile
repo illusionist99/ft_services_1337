@@ -18,5 +18,5 @@ RUN     chmod +x /script.sh
 COPY    mariadb-server.cnf /etc/my.cnf.d/mariadb-server.cnf
 COPY    telegraf.conf /etc/telegraf.conf
 COPY    ./script.sh /
-
+COPY    ./create_pma.sql /
 ENTRYPOINT ["sh", "/script.sh"]
