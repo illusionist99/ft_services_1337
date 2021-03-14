@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 BREW_GOINFRE=$HOME/goinfre/.brew
 BREW_HOME=$HOME/.brew
 DOCKER_GOINFRE=$HOME/goinfre/.docker

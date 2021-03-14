@@ -8,7 +8,7 @@ RUN     apk add grafana --repository=http://dl-cdn.alpinelinux.org/alpine/edge/c
 RUN     apk add telegraf --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community/
 COPY    script.sh /
 COPY    telegraf.conf /etc/telegraf.conf
-
+COPY    health_check.sh /
 RUN     chmod 777 /script.sh
 
 ENTRYPOINT ["sh","/script.sh"]

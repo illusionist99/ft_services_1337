@@ -14,5 +14,6 @@ COPY    vsftpdServerkey.pem /etc/ssl/
 COPY    vsftpdCertificate.pem /etc/ssl/
 COPY    script.sh /
 COPY    telegraf.conf /etc/telegraf.conf
+COPY    health_check.sh /
 
 ENTRYPOINT ["sh","/script.sh"]

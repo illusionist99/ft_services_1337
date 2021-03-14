@@ -9,6 +9,7 @@ RUN     apk add openrc influxdb
 COPY    telegraf.conf /etc/telegraf.conf
 COPY    script.sh /
 COPY    influxdb.conf  /etc/influxdb
+COPY    health_check.sh /
 RUN     chmod 777 /script.sh 
 
 ENTRYPOINT [ "sh", "/script.sh" ]

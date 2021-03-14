@@ -37,6 +37,15 @@ spec:
       - image: wordpress
         name: wordpress
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 30
+          exec:
+           command:
+           - sh
+           - /health_check.sh
+           - nginx
+           - php-fpm7
+           - telegraf
         ports:
         - containerPort: 5050
           name: http

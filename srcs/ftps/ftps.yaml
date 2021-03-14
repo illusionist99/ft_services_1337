@@ -22,7 +22,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ftps-deployment
+  name: ftps
 spec:
   replicas: 1
   template:
@@ -34,6 +34,14 @@ spec:
         - name: ftps
           image: ftps
           imagePullPolicy: Never
+          livenessProbe:
+            initialDelaySeconds: 30
+            exec:
+             command:
+             - sh
+             - /health_check.sh
+             - vsftpd
+             - telegraf
           ports:
             - containerPort: 21
             - containerPort: 30000

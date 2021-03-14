@@ -18,6 +18,14 @@ spec:
       - image: grafana
         name: grafana
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 30
+          exec:
+           command:
+           - sh
+           - /health_check.sh
+           - grafana-server
+           - telegraf
         ports:
         - containerPort: 3000
 ---

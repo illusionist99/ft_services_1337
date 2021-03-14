@@ -37,6 +37,15 @@ spec:
       - image: phpmyadmin
         name: phpmyadmin
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 30
+          exec:
+           command:
+           - sh
+           - /health_check.sh
+           - nginx
+           - php-fpm7
+           - telegraf
         ports:
         - containerPort: 5000
           name: http

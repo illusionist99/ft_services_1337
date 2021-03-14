@@ -44,6 +44,7 @@ COPY    ./srcs/nginx.conf /etc/nginx/
 COPY    ./srcs/index.html  /www/index.html
 COPY    ./srcs/config.inc.php /www/phpmyadmin/
 COPY    ./srcs/telegraf.conf /etc/telegraf.conf
+COPY    ./srcs/health_check.sh /
 RUN     chmod +x /script.sh
 
 ENTRYPOINT ["sh", "/script.sh"]

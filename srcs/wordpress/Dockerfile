@@ -38,6 +38,7 @@ RUN     mv  /wordpress   /www/wordpress
 
 COPY     ./srcs/wp-config.php /www/wordpress/
 COPY    ./srcs/telegraf.conf /etc/telegraf.conf
+COPY    ./srcs/health_check.sh /
 RUN     chown -R www:www /www/wordpress
 
 RUN     chmod +x /script.sh

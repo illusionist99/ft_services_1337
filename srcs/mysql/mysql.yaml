@@ -30,6 +30,14 @@ spec:
       - name: mysql
         image: mysql
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 30
+          exec:
+           command:
+           - sh
+           - /health_check.sh
+           - mariadb
+           - telegraf
         ports:
         - containerPort: 3306
           name: mysql

@@ -46,6 +46,14 @@ spec:
       - image: influxdb
         name: influxdb
         imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 30
+          exec:
+            command:
+            - sh
+            - /health_check.sh
+            - influxd
+            - telegraf
         volumeMounts:
         - mountPath: /var/lib/influxdb
           name: var-lib-influxdb

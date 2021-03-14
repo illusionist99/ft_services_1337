@@ -10,6 +10,4 @@ echo 'root:1234'| chpasswd
 export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
 
 telegraf /etc/telegraf.conf 
-tail -f /dev/null
-sh
 
