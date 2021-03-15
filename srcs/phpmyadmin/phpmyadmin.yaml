@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: phpmyadmin
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
+  labels:
+    app: phpmyadmin
+spec:
+  ports:
+    - port: 5000
+      name: http
+      targetPort: 5000
+  selector:
+    app: phpmyadmin
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phpmyadmin
+  labels:
+    app: phpmyadmin
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: phpmyadmin
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: phpmyadmin
+    spec:
+      containers:
+      - image: phpmyadmin
+        name: phpmyadmin
+        imagePullPolicy: Never
+        livenessProbe:
+          initialDelaySeconds: 30
+          exec:
+           command:
+           - sh
+           - /health_check.sh
+           - nginx
+           - php-fpm7
+           - telegraf
+        ports:
+        - containerPort: 5000
+          name: http
+        command: [ "/bin/sh", "-ce", "/script.sh && tail -f /dev/null" ]
