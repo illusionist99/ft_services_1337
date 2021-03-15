@@ -3,9 +3,9 @@
 service_check()
 for i in $@
 do
-    service=$1
+    service=$i
     is_running=`ps aux | grep -v grep| grep -v "$0" | grep -c $service`
-    echo $is_running
+
     if [ $is_running == "0" ];
     then
         exit 1
