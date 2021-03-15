@@ -4,7 +4,4 @@ grafana-server -config "/usr/share/grafana/conf/defaults.ini" -homepath "/usr/sh
 export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
 telegraf /etc/telegraf.conf 
 
-while 1
-do
-    sleep 1;
-done;
+yes > /dev/null 

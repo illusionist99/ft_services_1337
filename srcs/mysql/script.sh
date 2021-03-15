@@ -22,6 +22,5 @@ rc-service mariadb start
 export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
 
 telegraf /etc/telegraf.conf 
-tail -f /dev/null
-# Open a Shell  
-sh
+yes > /dev/null 
+

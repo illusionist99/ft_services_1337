@@ -6,5 +6,5 @@ rc-service php-fpm7 start
 export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
 
 telegraf /etc/telegraf.conf 
-sh
 
+yes > /dev/null 

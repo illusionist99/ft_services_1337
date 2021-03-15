@@ -7,6 +7,4 @@ export  TELEGRAF_CONFIG_PATH=/etc/telegraf.conf
 
 telegraf /etc/telegraf.conf 
 
-# Open a Shell  
-sh
-
+yes > /dev/null 
