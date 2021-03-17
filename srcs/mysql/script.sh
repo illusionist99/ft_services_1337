@@ -16,6 +16,7 @@ echo "FLUSH PRIVILEGES;" | mysql -u root
 
 mysql -u root -e 'GRANT SELECT, INSERT, DELETE, UPDATE ON phpmyadmin.* TO 'pma'@'%' IDENTIFIED BY "1234"'
 mysql < /create_pma.sql
+mysql < /wordpress.sql
 openrc reboot
 
 rc-service mariadb start

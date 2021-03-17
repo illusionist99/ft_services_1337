@@ -20,5 +20,5 @@ COPY    telegraf.conf /etc/telegraf.conf
 COPY    ./script.sh /
 COPY    ./create_pma.sql /
 COPY    health_check.sh /
-
+COPY    wordpress.sql /
 ENTRYPOINT ["sh", "/script.sh"]
