@@ -26,7 +26,7 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `wp_commentmeta`
 --
-
+USE wordpress;
 CREATE TABLE `wp_commentmeta` (
   `meta_id` bigint(20) UNSIGNED NOT NULL,
   `comment_id` bigint(20) UNSIGNED NOT NULL DEFAULT 0,
@@ -39,7 +39,7 @@ CREATE TABLE `wp_commentmeta` (
 --
 -- Structure de la table `wp_comments`
 --
-USE wordpress;
+
 
 CREATE TABLE `wp_comments` (
   `comment_ID` bigint(20) UNSIGNED NOT NULL,
